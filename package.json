@@ -21,7 +21,7 @@
   "packageManager": "pnpm@10.7.0",
   "dependencies": {
     "@elastic/elasticsearch": "^9.0.0",
-    "@wuyuding2583/jobber-shared": "^0.0.5",
+    "@wuyuding2583/jobber-shared": "^0.0.6",
     "axios": "^1.8.4",
     "bcrypt": "^5.1.1",
     "compression": "^1.8.0",

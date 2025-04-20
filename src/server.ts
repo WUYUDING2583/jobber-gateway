@@ -11,6 +11,7 @@ import http from 'http';
 import { config } from '@gateway/config';
 import { elasticSearch } from '@gateway/elasticsearch';
 import { appRoutes } from '@gateway/routes';
+import { axiosAuthInstance } from './services/api/auth.service';
 
 const SERVER_PORT = 4000;
 const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'gateway-service', 'debug');
@@ -51,6 +52,12 @@ export class GatewayServer {
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH']
       })
     );
+    app.use((req: Request, _res: Response, next: NextFunction) => {
+      if (req.session?.jwt) {
+        axiosAuthInstance.defaults.headers.common['Authorization'] = `Bearer ${req.session.jwt}`;
+      }
+      next();
+    });
   }
 
   private standardMiddleware(app: Application): void {
@@ -74,12 +81,15 @@ export class GatewayServer {
       res.status(StatusCodes.NOT_FOUND).json({ message: 'The endpoint called does not exist.' });
     });
 
-    app.use((error: IErrorResponse, _req: Request, res: Response, next: NextFunction) => {
+    app.use((error: IErrorResponse, _req: Request, res: Response, _next: NextFunction) => {
       log.log('error', `gateway-service ${error.comingFrom}:`, error);
       if (error instanceof CustomError) {
         res.status(error.statusCode).json(error.serializeErrors());
       }
-      next();
+      console.log('error instanceof CustomError', error instanceof CustomError);
+      res.status(500).json({
+        error: { code: 'INTERNAL_SERVER_ERROR', message: 'Unexpected failure' }
+      });
     });
   }
 

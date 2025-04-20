@@ -12,8 +12,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0
       '@wuyuding2583/jobber-shared':
-        specifier: ^0.0.5
-        version: 0.0.5
+        specifier: ^0.0.6
+        version: 0.0.6
       axios:
         specifier: ^1.8.4
         version: 1.8.4
@@ -716,8 +716,8 @@ packages:
     resolution: {integrity: sha512-aEhgas7aJ6vZnNFC7K4/vMGDGyOiqWcYZPpIWrTKuTAlsvDNKy2GFDqh9smL+iq069ZvR0YzEeq0B8NJlLzjFA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@wuyuding2583/jobber-shared@0.0.5':
-    resolution: {integrity: sha512-bZn3koGwSxCwFvWOdSGBBa1b5eN7XKjE1i7M9MDIJ7l/6ezcViKieiPwNtF7uRzmN+7ztgGeUWyfz7K9VeXHqw==, tarball: https://npm.pkg.github.com/download/@WUYUDING2583/jobber-shared/0.0.5/baa08a68079705e80eedd2a4ccd6dba14f49a3b8}
+  '@wuyuding2583/jobber-shared@0.0.6':
+    resolution: {integrity: sha512-q72TqQDuJcR9SSaqHKp+RE5cDin+TyRfUsYJR21h0RBeLS4TmccsdT4p614mXXc3EbKSAC8cxwi2UUZLblyFaQ==, tarball: https://npm.pkg.github.com/download/@WUYUDING2583/jobber-shared/0.0.6/3665c43391de21345f364e56e104bd6ba83fc85e}
 
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -4088,7 +4088,7 @@ snapshots:
       '@typescript-eslint/types': 8.30.1
       eslint-visitor-keys: 4.2.0
 
-  '@wuyuding2583/jobber-shared@0.0.5':
+  '@wuyuding2583/jobber-shared@0.0.6':
     dependencies:
       '@elastic/elasticsearch': 8.18.0
       cloudinary: 2.6.0
